@@ -28,8 +28,6 @@ PODLClient::~PODLClient()
 
 int PODLClient::RecvPacket()
 {
-	//char* message = new char[UDPServer::BUFLEN];
-	int i = 0;
 	int n = 0;
 	socklen_t slen = sizeof(addr);
 	char* buf = new char[BUFLEN];
@@ -63,8 +61,27 @@ int PODLClient::SendPacket(const char* msg, int size)
 
 int PODLClient::Run()
 {
-	string msg = "hello Server";
-	SendPacket(msg.c_str(), msg.length());
+    //byte buffer
+    char buffer[BUFLEN];
+
+	PODLPacket goodPacket;
+    goodPacket.msg.id = 28;
+    
+    unsigned char checksum[MD5_DIGEST_LENGTH];
+
+    //copy password to data
+    string stringData = "password";
+    goodPacket.msg.length = stringData.length();
+    int packetSize = goodPacket.msg.length + PODL_MIN_SIZE;
+
+    std::copy(stringData.c_str(), stringData.c_str() + goodPacket.msg.length, goodPacket.msg.data);
+    MD5((unsigned char*)&goodPacket, packetSize, (unsigned char*)&checksum);
+
+    memcpy(buffer, (char*)&goodPacket.msg, packetSize);
+    memcpy(buffer + packetSize, (char*)checksum, MD5_DIGEST_LENGTH);
+
+
+	SendPacket(buffer, goodPacket.msg.length + PODL_CS_MIN_SIZE);
 	RecvPacket();
 	return 0;
 }

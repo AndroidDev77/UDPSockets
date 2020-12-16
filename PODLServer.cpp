@@ -1,7 +1,7 @@
 #include <chrono>
 #include "PODLServer.h"
 
-PODLServer::PODLServer(string ipaddr, int port, string password)
+PODLServer::PODLServer(std::string ipaddr, int port, std::string password)
 {
     password = password;
 
@@ -57,7 +57,7 @@ int PODLServer::SendPacket(const char* message, int size)
 int PODLServer::SendPacket(PODLPacket packet)
 {
 	socklen_t slen = sizeof(cliaddr);
-    int datalength = packet.data.length + 25;
+    int datalength = packet.msg.length + 25;
 	if (sendto(sock,(char*) &packet, datalength,0 , (struct sockaddr*) &cliaddr, slen) == -1)
         {
                fprintf(stderr, "sendto() failed\n");
@@ -88,20 +88,22 @@ int PODLServer::Run()
 	{
         //Received Packet
         PODLPacket packet = RecvPacket(buffer);
-        int packetSize = packet.data.length + 25; // 25 is size of packet without data
+        int packetSize = packet.msg.length + PODL_CS_MIN_SIZE; // 25 is size of packet without data
 
         // Response Packet
         PODLPacket resPacket = PODLPacket();
 
         // Checkpassword
-        passwordResult = password.compare(packet.data.data);
+        
+        passwordResult = password.compare(std::string(reinterpret_cast<const char*>(&packet.msg.data [0]),
+                            packet.msg.data.size()));
 
         // correct password
         if(passwordResult == 0)
-            memset(resPacket.data.data, 0, 1);
+           resPacket.msg.data[0] = 0;
         // wrong password
         else
-            memset(resPacket.data.data, 1, 1);
+            resPacket.msg.data[0] = 1;
 
         // Check checksum
         MD5((unsigned char*)&buffer, packetSize, (unsigned char*)&checksum);
@@ -110,15 +112,15 @@ int PODLServer::Run()
         for(int i = 0; i < 16; i++)
             {
                 sprintf(&mdString1[i*2], "%02x", (unsigned int)checksum[i]);
-                sprintf(&mdString2[i*2], "%02x", (unsigned int)packet.data.checksum[i]);
+                sprintf(&mdString2[i*2], "%02x", (unsigned int)packet.checksum[i]);
             }
     
         int checksumRes = strcmp(mdString1, mdString2);
         if(checksumRes != 0)
-            memset(resPacket.data.data,2,1);
+            resPacket.msg.data[0] = 2;
 
-        resPacket.data.id = packet.data.id;
-        resPacket.data.length = 1;
+        resPacket.msg.id = packet.msg.id;
+        resPacket.msg.length = 1;
 		SendPacket(packet);
 		std::cout << packet;
 		
@@ -127,7 +129,7 @@ int PODLServer::Run()
 }
 int main( int argc, const char* argv[] )
 {
-    string password = "password";
+    std::string password = "password";
 	PODLServer serv("127.0.0.1", 10000, password);
 	serv.Run();
 
