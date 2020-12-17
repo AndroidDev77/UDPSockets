@@ -1,4 +1,4 @@
-
+#include <string>
 #include <iostream>
 #include <arpa/inet.h>
 #include <sys/socket.h>
@@ -11,7 +11,6 @@ class PODLServer
 
 private:
 	sockaddr_in srvaddr, cliaddr;
-	int BUFLEN = 280;
 	int sock = 0;
     std::string password;
 public:

@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/chris/binaryParser/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/PODLServer.dir/PODLPacket.cpp.o -c /home/chris/binaryParser/PODLPacket.cpp",
+  "file": "/home/chris/binaryParser/PODLPacket.cpp"
+},
+{
+  "directory": "/home/chris/binaryParser/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/PODLServer.dir/PODLServer.cpp.o -c /home/chris/binaryParser/PODLServer.cpp",
+  "file": "/home/chris/binaryParser/PODLServer.cpp"
+},
+{
+  "directory": "/home/chris/binaryParser/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/PODLServer.dir/PODLClient.cpp.o -c /home/chris/binaryParser/PODLClient.cpp",
+  "file": "/home/chris/binaryParser/PODLClient.cpp"
+},
+{
+  "directory": "/home/chris/binaryParser/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/PODLServer.dir/main.cpp.o -c /home/chris/binaryParser/main.cpp",
+  "file": "/home/chris/binaryParser/main.cpp"
+}
+]

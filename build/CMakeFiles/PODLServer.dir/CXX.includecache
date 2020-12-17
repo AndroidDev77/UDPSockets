@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chris/binaryParser/PODLPacket.cpp
+PODLPacket.h
+/home/chris/binaryParser/PODLPacket.h
+
+/home/chris/binaryParser/PODLPacket.h
+arpa/inet.h
+-
+sys/types.h
+-
+inttypes.h
+-
+stdio.h
+-
+string
+-
+cstring
+-
+iostream
+-
+algorithm
+-
+vector
+-
+openssl/md5.h
+/home/chris/binaryParser/openssl/md5.h
+

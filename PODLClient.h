@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include "PODLPacket.h"
 
+
 using namespace std;
 
 class PODLClient
@@ -12,7 +13,6 @@ class PODLClient
 
 private:
 	sockaddr_in addr;
-	int BUFLEN = 512;
 	int sock = 0;
 public:
 	PODLClient(string ipaddr, int port);
