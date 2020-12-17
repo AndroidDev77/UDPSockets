@@ -4,7 +4,7 @@
 #include "PODLServer.h"
 #include "PODLClient.h"
 
-
+//Function for PODL Server
 void *serverThread(void* arg)
 {
     std::string password = "password";
@@ -14,11 +14,9 @@ void *serverThread(void* arg)
     return 0;
 }
 int main(int, char**) {
-    std::cout << "Hello, world!\n";
-
     pthread_t thread;
     pthread_create(&thread, NULL, serverThread, (void*) "Server Thread");
-
+    
     PODLClient cli("127.0.0.1", 10000);
 	cli.Run();
 

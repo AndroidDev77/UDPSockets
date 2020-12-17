@@ -1,6 +1,13 @@
 #include <chrono>
 #include "PODLServer.h"
 
+/**
+ * PODLServer::PODLServer 
+ * 
+ * @param  {std::string} ipaddr    : 
+ * @param  {int} port              : 
+ * @param  {std::string} ipassword : 
+ */
 PODLServer::PODLServer(std::string ipaddr, int port, std::string ipassword)
 {
     password = ipassword;
@@ -24,36 +31,22 @@ PODLServer::PODLServer(std::string ipaddr, int port, std::string ipassword)
 	}
 
 }
-
+/**
+ * PODLServer::~PODLServer 
+ *  Close socket
+ */
 PODLServer::~PODLServer()
 {
 	close(sock);
 }
 
-int PODLServer::SendPacket(const char* message, int size)
-{
-	int i = 0;
-	socklen_t slen = sizeof(cliaddr);
-	
-	while(1)
-	{
 
-		//send the message
-		if (sendto(sock, message, size,0 , (struct sockaddr*) &cliaddr, slen) == -1)
-		//if(send(sock, message, size, 0)==1)
-		{
-			fprintf(stderr, "sendto() failed\n");
-		}
-		i++;
-		printf("Length: %d %d Sent Message # %d \n", size, slen, i);
-
-		sleep(2);
-
-	}
-	close(sock);
-	return 0;
-}
-
+/**
+ * PODLServer::SendPacket
+ * 
+ * @param  {PODLPacket} packet : 
+ * @return {int}               : 
+ */
 int PODLServer::SendPacket(PODLPacket packet)
 {
 	socklen_t slen = sizeof(cliaddr);
@@ -66,18 +59,32 @@ int PODLServer::SendPacket(PODLPacket packet)
 	return 0;
 }
 
+/**
+ * PODLServer::RecvPacket
+ * 
+ * @param  {char*} buffer : 
+ * @return {PODLPacket}   : 
+ */
 PODLPacket PODLServer::RecvPacket(char* buffer)
 {
     	socklen_t len = sizeof(cliaddr); 
 
     	int n = recvfrom(sock, (char *)buffer, PODL_MAX_SIZE,  0, ( struct sockaddr *) &cliaddr, &len);
-    	
-        PODLPacket packet = PODLPacket(buffer);
-    	std::cout << "PODLServer: Received: " << packet << std::endl;
+    	PODLPacket packet;
+        if(n > 0)
+        {
+            packet = PODLPacket(buffer);
+    	    std::cout << "PODLServer: Received: " << packet << std::endl;
+        }
 
 	    return packet;
 }
 
+/**
+ * PODLServer::Run 
+ * 
+ * @return {int}  : 
+ */
 int PODLServer::Run()
 {
 	char buffer[PODL_MAX_SIZE];

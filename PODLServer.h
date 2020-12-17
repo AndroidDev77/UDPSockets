@@ -6,6 +6,9 @@
 #include "openssl/md5.h"
 #include "PODLPacket.h"
 
+/**
+ * UDP Server for sending PODL Packets
+ */
 class PODLServer
 {
 
@@ -16,7 +19,6 @@ private:
 public:
 	PODLServer(std::string ipaddr, int port, std::string password);
 	~PODLServer();
-	int SendPacket(const char* msg, int size);
 	int SendPacket(PODLPacket packet);
 	PODLPacket RecvPacket(char* msg);
 	int Run();

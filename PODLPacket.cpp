@@ -1,10 +1,21 @@
 #include "PODLPacket.h"
 
+/**
+ * PODLPacket::PODLPacket 
+ * 
+ */
 PODLPacket::PODLPacket()
 {
     memcpy(msg.header,std::string("PODL").c_str(),4);
+    msg.id = 0;
+    msg.length = 0;
+    checksum[16] = {0};
 }
-
+/**
+ * PODLPacket::PODLPacket 
+ * 
+ * @param  {char*} indata : 
+ */
 PODLPacket::PODLPacket(char* indata)
 {
     //PODLPacket::Data* sdata = (PODLPacket::Data*)indata;
@@ -25,7 +36,12 @@ PODLPacket::PODLPacket(char* indata)
     memcpy(&checksum, indata, sizeof(checksum));
 
 }
-
+/**
+ *  Print Packet
+ * @param  {std::ostream} strm : 
+ * @param  {PODLPacket} packet : 
+ * @return {std::ostream}      : 
+ */
 std::ostream& operator<<(std::ostream &strm, const PODLPacket &packet) {
     char mdString[33];
      

@@ -1,6 +1,11 @@
 #include "PODLClient.h"
 
-
+/**
+ * PODLClient::PODLClient 
+ * 
+ * @param  {string} ipaddr : 
+ * @param  {int} port      : 
+ */
 PODLClient::PODLClient(string ipaddr, int port)
 {
 	if((sock=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
@@ -20,12 +25,19 @@ PODLClient::PODLClient(string ipaddr, int port)
 	}
 
 }
-
+/**
+ * PODLClient::~PODLClient 
+ * 
+ */
 PODLClient::~PODLClient()
 {
 	close(sock);
 }
-
+/**
+ * PODLClient::RecvPacket 
+ * 
+ * @return {int}  : 
+ */
 int PODLClient::RecvPacket()
 {
 	int n = 0;
@@ -50,6 +62,14 @@ int PODLClient::RecvPacket()
 	close(sock);
 	return 0;
 }
+
+/**
+ * PODLClient::SendPacket 
+ * 
+ * @param  {char*} msg : 
+ * @param  {int} size  : 
+ * @return {int}       : 
+ */
 int PODLClient::SendPacket(const char* msg, int size)
 {
 	socklen_t slen = sizeof(addr);
@@ -60,6 +80,11 @@ int PODLClient::SendPacket(const char* msg, int size)
 	return 0;
 }
 
+/**
+ * PODLClient::Run() 
+ * 
+ * @return {int}  : 
+ */
 int PODLClient::Run()
 {
     //byte buffer
