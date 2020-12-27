@@ -13,6 +13,7 @@ void *serverThread(void* arg)
 
     return 0;
 }
+
 int main(int, char**) {
     pthread_t thread;
     pthread_create(&thread, NULL, serverThread, (void*) "Server Thread");

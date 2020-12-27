@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/chris/binaryParser/PODLClient.cpp
+PODLClient.h
+/home/chris/binaryParser/PODLClient.h
+
 /home/chris/binaryParser/PODLClient.h
 string
 -
@@ -17,6 +21,10 @@ sys/socket.h
 -
 unistd.h
 -
+PODLPacket.h
+/home/chris/binaryParser/PODLPacket.h
+
+/home/chris/binaryParser/PODLPacket.cpp
 PODLPacket.h
 /home/chris/binaryParser/PODLPacket.h
 

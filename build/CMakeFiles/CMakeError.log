@@ -1,0 +1,205 @@
+Performing C SOURCE FILE Test WARNING_C_FLAG_Weverything failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cb9ea/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_cb9ea.dir/build.make CMakeFiles/cmTC_cb9ea.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cb9ea.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Weverything   -Weverything -o CMakeFiles/cmTC_cb9ea.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command line option '-Weverything'
+make[2]: *** [CMakeFiles/cmTC_cb9ea.dir/build.make:66: CMakeFiles/cmTC_cb9ea.dir/src.c.o] Error 1
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:121: cmTC_cb9ea/fast] Error 2
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wno-disabled-macro-expansion failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d9811/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d9811.dir/build.make CMakeFiles/cmTC_d9811.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d9811.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wno-disabled-macro-expansion   -Wno-disabled-macro-expansion -o CMakeFiles/cmTC_d9811.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+cc1: warning: unrecognized command line option '-Wno-disabled-macro-expansion'
+Linking C executable cmTC_d9811
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9811.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wno-disabled-macro-expansion    -rdynamic CMakeFiles/cmTC_d9811.dir/src.c.o  -o cmTC_d9811 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wno-reserved-id-macro failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e1463/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e1463.dir/build.make CMakeFiles/cmTC_e1463.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e1463.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wno-reserved-id-macro   -Wno-reserved-id-macro -o CMakeFiles/cmTC_e1463.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+cc1: warning: unrecognized command line option '-Wno-reserved-id-macro'
+Linking C executable cmTC_e1463
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1463.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wno-reserved-id-macro    -rdynamic CMakeFiles/cmTC_e1463.dir/src.c.o  -o cmTC_e1463 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wno-keyword-macro failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_26100/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_26100.dir/build.make CMakeFiles/cmTC_26100.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_26100.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wno-keyword-macro   -Wno-keyword-macro -o CMakeFiles/cmTC_26100.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+cc1: warning: unrecognized command line option '-Wno-keyword-macro'
+Linking C executable cmTC_26100
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26100.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wno-keyword-macro    -rdynamic CMakeFiles/cmTC_26100.dir/src.c.o  -o cmTC_26100 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Weverything failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2a766/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_2a766.dir/build.make CMakeFiles/cmTC_2a766.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2a766.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Weverything   -Weverything -o CMakeFiles/cmTC_2a766.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Weverything'
+make[2]: *** [CMakeFiles/cmTC_2a766.dir/build.make:66: CMakeFiles/cmTC_2a766.dir/src.cxx.o] Error 1
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:121: cmTC_2a766/fast] Error 2
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wno-disabled-macro-expansion failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9ac58/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_9ac58.dir/build.make CMakeFiles/cmTC_9ac58.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9ac58.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wno-disabled-macro-expansion   -Wno-disabled-macro-expansion -o CMakeFiles/cmTC_9ac58.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+cc1plus: warning: unrecognized command line option '-Wno-disabled-macro-expansion'
+Linking CXX executable cmTC_9ac58
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ac58.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wno-disabled-macro-expansion    -rdynamic CMakeFiles/cmTC_9ac58.dir/src.cxx.o  -o cmTC_9ac58 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wno-reserved-id-macro failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_47f5b/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_47f5b.dir/build.make CMakeFiles/cmTC_47f5b.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_47f5b.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wno-reserved-id-macro   -Wno-reserved-id-macro -o CMakeFiles/cmTC_47f5b.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+cc1plus: warning: unrecognized command line option '-Wno-reserved-id-macro'
+Linking CXX executable cmTC_47f5b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47f5b.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wno-reserved-id-macro    -rdynamic CMakeFiles/cmTC_47f5b.dir/src.cxx.o  -o cmTC_47f5b 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wno-keyword-macro failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dd73a/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_dd73a.dir/build.make CMakeFiles/cmTC_dd73a.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_dd73a.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wno-keyword-macro   -Wno-keyword-macro -o CMakeFiles/cmTC_dd73a.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+cc1plus: warning: unrecognized command line option '-Wno-keyword-macro'
+Linking CXX executable cmTC_dd73a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd73a.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wno-keyword-macro    -rdynamic CMakeFiles/cmTC_dd73a.dir/src.cxx.o  -o cmTC_dd73a 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wno-global-constructors failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7dce1/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_7dce1.dir/build.make CMakeFiles/cmTC_7dce1.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7dce1.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wno-global-constructors   -Wno-global-constructors -o CMakeFiles/cmTC_7dce1.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+cc1plus: warning: unrecognized command line option '-Wno-global-constructors'
+Linking CXX executable cmTC_7dce1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7dce1.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wno-global-constructors    -rdynamic CMakeFiles/cmTC_7dce1.dir/src.cxx.o  -o cmTC_7dce1 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wno-exit-time-destructors failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ccf08/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_ccf08.dir/build.make CMakeFiles/cmTC_ccf08.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ccf08.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wno-exit-time-destructors   -Wno-exit-time-destructors -o CMakeFiles/cmTC_ccf08.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+cc1plus: warning: unrecognized command line option '-Wno-exit-time-destructors'
+Linking CXX executable cmTC_ccf08
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ccf08.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wno-exit-time-destructors    -rdynamic CMakeFiles/cmTC_ccf08.dir/src.cxx.o  -o cmTC_ccf08 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wno-weak-vtables failed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_89c34/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_89c34.dir/build.make CMakeFiles/cmTC_89c34.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_89c34.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wno-weak-vtables   -Wno-weak-vtables -o CMakeFiles/cmTC_89c34.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+cc1plus: warning: unrecognized command line option '-Wno-weak-vtables'
+Linking CXX executable cmTC_89c34
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89c34.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wno-weak-vtables    -rdynamic CMakeFiles/cmTC_89c34.dir/src.cxx.o  -o cmTC_89c34 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }

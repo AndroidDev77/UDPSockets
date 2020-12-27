@@ -1,0 +1,429 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "_deps/cpputest-build/src/CppUTestExt/libCppUTestExt.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"install",
+			"add_definitions",
+			"include_directories",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"build/_deps/cpputest-src/src/CppUTestExt/CMakeLists.txt",
+			"build/_deps/cpputest-src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 43,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 55,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 24,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 29,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 34,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 40,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 107,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 106,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 109,
+				"parent" : 3
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 47,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "  -include \"/home/chris/binaryParser/build/_deps/cpputest-src/include/CppUTest/MemoryLeakDetectorNewMacros.h\" -include \"/home/chris/binaryParser/build/_deps/cpputest-src/include/CppUTest/MemoryLeakDetectorMallocMacros.h\"  -Wall -Wextra -pedantic -Wshadow -Wswitch-default -Wswitch-enum -Wconversion -Wsign-conversion -Wno-padded -Wno-long-long -Woverloaded-virtual -Wno-old-style-cast -g  "
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "CPPUTEST_HAVE_FORK"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "CPPUTEST_HAVE_GETTIMEOFDAY=1"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "CPPUTEST_HAVE_PTHREAD_MUTEX_LOCK=1"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "CPPUTEST_HAVE_STRDUP=1"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "HAVE_CONFIG_H"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 9,
+					"path" : "/home/chris/binaryParser/build/_deps/cpputest-build"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/home/chris/binaryParser/build/_deps/cpputest-src/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/home/chris/binaryParser/build/_deps/cpputest-src/src/CppUTestExt/../../include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		}
+	],
+	"id" : "CppUTestExt::@54c941c1eab0c1b65e23",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"name" : "CppUTestExt",
+	"nameOnDisk" : "libCppUTestExt.a",
+	"paths" : 
+	{
+		"build" : "_deps/cpputest-build/src/CppUTestExt",
+		"source" : "build/_deps/cpputest-src/src/CppUTestExt"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/CodeMemoryReportFormatter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/GTest.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/IEEE754ExceptionsPlugin.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MemoryReporterPlugin.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MockFailure.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MockSupportPlugin.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MockActualCall.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MockSupport_c.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MemoryReportAllocator.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MockExpectedCall.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MockNamedValue.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/OrderedTest.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MemoryReportFormatter.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MockExpectedCallsList.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "build/_deps/cpputest-src/src/CppUTestExt/MockSupport.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/CodeMemoryReportFormatter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/IEEE754ExceptionsPlugin.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MemoryReportAllocator.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockExpectedCall.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockCheckedExpectedCall.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockExpectedCallsList.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockSupportPlugin.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MemoryReportFormatter.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockFailure.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockSupport.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockSupport_c.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/GMock.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/GTest.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/GTestSupport.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MemoryReporterPlugin.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/OrderedTest.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/GTestConvertor.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockActualCall.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockCheckedActualCall.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "build/_deps/cpputest-src/include/CppUTestExt/MockNamedValue.h",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

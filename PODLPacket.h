@@ -33,7 +33,11 @@ public:
 
     unsigned char checksum[MD5_DIGEST_LENGTH];
 	PODLPacket();
+    ~PODLPacket();
 	PODLPacket(char* indata);
+
+    void Deserialize(char* inbuffer);
+    int Serialize(char* outbuffer);
 };
 
 extern std::ostream& operator<<(std::ostream &strm, const PODLPacket &packet);

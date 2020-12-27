@@ -461,3 +461,479 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the function fork exists passed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d7e24/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d7e24.dir/build.make CMakeFiles/cmTC_d7e24.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d7e24.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DCHECK_FUNCTION_EXISTS=fork   -o CMakeFiles/cmTC_d7e24.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘fork’; expected ‘int(void)’ [-Wbuiltin-declaration-mismatch]
+/usr/share/cmake-3.16/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+    7 |   CHECK_FUNCTION_EXISTS(void);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_d7e24
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d7e24.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=fork    -rdynamic CMakeFiles/cmTC_d7e24.dir/CheckFunctionExists.c.o  -o cmTC_d7e24 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function gettimeofday exists passed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d93bf/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d93bf.dir/build.make CMakeFiles/cmTC_d93bf.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d93bf.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DCHECK_FUNCTION_EXISTS=gettimeofday   -o CMakeFiles/cmTC_d93bf.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d93bf
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d93bf.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gettimeofday    -rdynamic CMakeFiles/cmTC_d93bf.dir/CheckFunctionExists.c.o  -o cmTC_d93bf 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function pthread_mutex_lock exists passed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1af14/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_1af14.dir/build.make CMakeFiles/cmTC_1af14.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1af14.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DCHECK_FUNCTION_EXISTS=pthread_mutex_lock   -o CMakeFiles/cmTC_1af14.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1af14
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1af14.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_mutex_lock    -rdynamic CMakeFiles/cmTC_1af14.dir/CheckFunctionExists.c.o  -o cmTC_1af14 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function strdup exists passed with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_60453/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_60453.dir/build.make CMakeFiles/cmTC_60453.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_60453.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DCHECK_FUNCTION_EXISTS=strdup   -o CMakeFiles/cmTC_60453.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘strdup’; expected ‘char *(const char *)’ [-Wbuiltin-declaration-mismatch]
+/usr/share/cmake-3.16/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+    7 |   CHECK_FUNCTION_EXISTS(void);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_60453
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_60453.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strdup    -rdynamic CMakeFiles/cmTC_60453.dir/CheckFunctionExists.c.o  -o cmTC_60453 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wall succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f9265/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f9265.dir/build.make CMakeFiles/cmTC_f9265.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f9265.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wall   -Wall -o CMakeFiles/cmTC_f9265.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_f9265
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9265.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wall    -rdynamic CMakeFiles/cmTC_f9265.dir/src.c.o  -o cmTC_f9265 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wextra succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_975d5/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_975d5.dir/build.make CMakeFiles/cmTC_975d5.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_975d5.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wextra   -Wextra -o CMakeFiles/cmTC_975d5.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_975d5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_975d5.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wextra    -rdynamic CMakeFiles/cmTC_975d5.dir/src.c.o  -o cmTC_975d5 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_pedantic succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7e084/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_7e084.dir/build.make CMakeFiles/cmTC_7e084.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7e084.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_pedantic   -pedantic -o CMakeFiles/cmTC_7e084.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_7e084
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7e084.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_pedantic    -rdynamic CMakeFiles/cmTC_7e084.dir/src.c.o  -o cmTC_7e084 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wshadow succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e0721/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e0721.dir/build.make CMakeFiles/cmTC_e0721.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e0721.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wshadow   -Wshadow -o CMakeFiles/cmTC_e0721.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e0721
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e0721.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wshadow    -rdynamic CMakeFiles/cmTC_e0721.dir/src.c.o  -o cmTC_e0721 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wswitch-default succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9cd12/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_9cd12.dir/build.make CMakeFiles/cmTC_9cd12.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9cd12.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wswitch-default   -Wswitch-default -o CMakeFiles/cmTC_9cd12.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_9cd12
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9cd12.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wswitch-default    -rdynamic CMakeFiles/cmTC_9cd12.dir/src.c.o  -o cmTC_9cd12 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wswitch-enum succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dccfd/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_dccfd.dir/build.make CMakeFiles/cmTC_dccfd.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dccfd.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wswitch-enum   -Wswitch-enum -o CMakeFiles/cmTC_dccfd.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_dccfd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dccfd.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wswitch-enum    -rdynamic CMakeFiles/cmTC_dccfd.dir/src.c.o  -o cmTC_dccfd 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wconversion succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1c5f9/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_1c5f9.dir/build.make CMakeFiles/cmTC_1c5f9.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c5f9.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wconversion   -Wconversion -o CMakeFiles/cmTC_1c5f9.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_1c5f9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1c5f9.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wconversion    -rdynamic CMakeFiles/cmTC_1c5f9.dir/src.c.o  -o cmTC_1c5f9 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wsign-conversion succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_274c4/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_274c4.dir/build.make CMakeFiles/cmTC_274c4.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_274c4.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wsign-conversion   -Wsign-conversion -o CMakeFiles/cmTC_274c4.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_274c4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_274c4.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wsign-conversion    -rdynamic CMakeFiles/cmTC_274c4.dir/src.c.o  -o cmTC_274c4 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wno-padded succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ae415/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_ae415.dir/build.make CMakeFiles/cmTC_ae415.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae415.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wno-padded   -Wno-padded -o CMakeFiles/cmTC_ae415.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_ae415
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae415.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wno-padded    -rdynamic CMakeFiles/cmTC_ae415.dir/src.c.o  -o cmTC_ae415 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wno-long-long succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_57155/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_57155.dir/build.make CMakeFiles/cmTC_57155.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_57155.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wno-long-long   -Wno-long-long -o CMakeFiles/cmTC_57155.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_57155
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57155.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wno-long-long    -rdynamic CMakeFiles/cmTC_57155.dir/src.c.o  -o cmTC_57155 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test WARNING_C_FLAG_Wstrict-prototypes succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e7a62/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e7a62.dir/build.make CMakeFiles/cmTC_e7a62.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e7a62.dir/src.c.o
+/usr/bin/cc  -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_C_FLAG_Wstrict-prototypes   -Wstrict-prototypes -o CMakeFiles/cmTC_e7a62.dir/src.c.o   -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.c
+<command-line>: warning: ISO C99 requires whitespace after the macro name
+Linking C executable cmTC_e7a62
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e7a62.dir/link.txt --verbose=1
+/usr/bin/cc  -DWARNING_C_FLAG_Wstrict-prototypes    -rdynamic CMakeFiles/cmTC_e7a62.dir/src.c.o  -o cmTC_e7a62 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wall succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e16da/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e16da.dir/build.make CMakeFiles/cmTC_e16da.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e16da.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wall   -Wall -o CMakeFiles/cmTC_e16da.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_e16da
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e16da.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wall    -rdynamic CMakeFiles/cmTC_e16da.dir/src.cxx.o  -o cmTC_e16da 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wextra succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_37996/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_37996.dir/build.make CMakeFiles/cmTC_37996.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_37996.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wextra   -Wextra -o CMakeFiles/cmTC_37996.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_37996
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37996.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wextra    -rdynamic CMakeFiles/cmTC_37996.dir/src.cxx.o  -o cmTC_37996 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_pedantic succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c852d/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_c852d.dir/build.make CMakeFiles/cmTC_c852d.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c852d.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_pedantic   -pedantic -o CMakeFiles/cmTC_c852d.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c852d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c852d.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_pedantic    -rdynamic CMakeFiles/cmTC_c852d.dir/src.cxx.o  -o cmTC_c852d 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wshadow succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_9981a/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_9981a.dir/build.make CMakeFiles/cmTC_9981a.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_9981a.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wshadow   -Wshadow -o CMakeFiles/cmTC_9981a.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_9981a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9981a.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wshadow    -rdynamic CMakeFiles/cmTC_9981a.dir/src.cxx.o  -o cmTC_9981a 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wswitch-default succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_61b3a/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_61b3a.dir/build.make CMakeFiles/cmTC_61b3a.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_61b3a.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wswitch-default   -Wswitch-default -o CMakeFiles/cmTC_61b3a.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_61b3a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61b3a.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wswitch-default    -rdynamic CMakeFiles/cmTC_61b3a.dir/src.cxx.o  -o cmTC_61b3a 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wswitch-enum succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_35612/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_35612.dir/build.make CMakeFiles/cmTC_35612.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_35612.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wswitch-enum   -Wswitch-enum -o CMakeFiles/cmTC_35612.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_35612
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_35612.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wswitch-enum    -rdynamic CMakeFiles/cmTC_35612.dir/src.cxx.o  -o cmTC_35612 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wconversion succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_09f8f/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_09f8f.dir/build.make CMakeFiles/cmTC_09f8f.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_09f8f.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wconversion   -Wconversion -o CMakeFiles/cmTC_09f8f.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_09f8f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09f8f.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wconversion    -rdynamic CMakeFiles/cmTC_09f8f.dir/src.cxx.o  -o cmTC_09f8f 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wsign-conversion succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_23ce5/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_23ce5.dir/build.make CMakeFiles/cmTC_23ce5.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_23ce5.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wsign-conversion   -Wsign-conversion -o CMakeFiles/cmTC_23ce5.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_23ce5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23ce5.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wsign-conversion    -rdynamic CMakeFiles/cmTC_23ce5.dir/src.cxx.o  -o cmTC_23ce5 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wno-padded succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d613b/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d613b.dir/build.make CMakeFiles/cmTC_d613b.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d613b.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wno-padded   -Wno-padded -o CMakeFiles/cmTC_d613b.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_d613b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d613b.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wno-padded    -rdynamic CMakeFiles/cmTC_d613b.dir/src.cxx.o  -o cmTC_d613b 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wno-long-long succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1273c/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_1273c.dir/build.make CMakeFiles/cmTC_1273c.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_1273c.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wno-long-long   -Wno-long-long -o CMakeFiles/cmTC_1273c.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_1273c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1273c.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wno-long-long    -rdynamic CMakeFiles/cmTC_1273c.dir/src.cxx.o  -o cmTC_1273c 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Woverloaded-virtual succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ac2a7/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_ac2a7.dir/build.make CMakeFiles/cmTC_ac2a7.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ac2a7.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Woverloaded-virtual   -Woverloaded-virtual -o CMakeFiles/cmTC_ac2a7.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_ac2a7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ac2a7.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Woverloaded-virtual    -rdynamic CMakeFiles/cmTC_ac2a7.dir/src.cxx.o  -o cmTC_ac2a7 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test WARNING_CXX_FLAG_Wno-old-style-cast succeeded with the following output:
+Change Dir: /home/chris/binaryParser/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c2c1f/fast && make[1]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_c2c1f.dir/build.make CMakeFiles/cmTC_c2c1f.dir/build
+make[2]: Entering directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c2c1f.dir/src.cxx.o
+/usr/bin/c++   -I/home/chris/binaryParser/build/CMakeFiles/CMakeTmp/unistd.h  -DWARNING_CXX_FLAG_Wno-old-style-cast   -Wno-old-style-cast -o CMakeFiles/cmTC_c2c1f.dir/src.cxx.o -c /home/chris/binaryParser/build/CMakeFiles/CMakeTmp/src.cxx
+<command-line>: warning: ISO C++11 requires whitespace after the macro name
+Linking CXX executable cmTC_c2c1f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2c1f.dir/link.txt --verbose=1
+/usr/bin/c++   -DWARNING_CXX_FLAG_Wno-old-style-cast    -rdynamic CMakeFiles/cmTC_c2c1f.dir/src.cxx.o  -o cmTC_c2c1f 
+make[2]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/home/chris/binaryParser/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
