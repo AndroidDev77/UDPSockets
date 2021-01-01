@@ -15,14 +15,14 @@ class PODLClient
 {
 
 private:
-	sockaddr_in addr;
+	sockaddr_in addr = {0};
 	int sock = 0;
 public:
 	PODLClient(string ipaddr, int port);
 	~PODLClient();
 	int SendPacket(const char* data, int size);
 	int SendPacket(PODLPacket packet);
-	int RecvPacket();
+	int RecvPacket(char* resbuffer);
 	int Run();
 
 };

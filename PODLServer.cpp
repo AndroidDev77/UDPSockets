@@ -4,7 +4,7 @@
 /**
  * PODLServer::PODLServer 
  * 
- * @param  {std::string} ipaddr    : 
+ * @param  {std::string} ipaddr    : unused
  * @param  {int} port              : 
  * @param  {std::string} ipassword : 
  */
@@ -47,11 +47,11 @@ PODLServer::~PODLServer()
  * @param  {PODLPacket} packet : 
  * @return {int}               : 
  */
-int PODLServer::SendPacket(PODLPacket packet)
+int PODLServer::SendPacket(char* buffer, int size)
 {
 	socklen_t slen = sizeof(cliaddr);
-    int datalength = packet.msg.length + 25;
-	if (sendto(sock,(char*) &packet, datalength,0 , (struct sockaddr*) &cliaddr, slen) == -1)
+   
+	if (sendto(sock,buffer, size ,0 , (struct sockaddr*) &cliaddr, slen) == -1)
         {
                fprintf(stderr, "sendto() failed\n");
         }
@@ -87,12 +87,18 @@ PODLPacket PODLServer::RecvPacket(char* buffer)
  */
 int PODLServer::Run()
 {
-	char buffer[PODL_MAX_SIZE];
-	unsigned char checksum[MD5_DIGEST_LENGTH];
+	char *buffer = new char[PODL_MAX_SIZE];
+    char *resbuffer = new char[PODL_MAX_SIZE];
+	unsigned char *checksum = new unsigned char [MD5_DIGEST_LENGTH];
     int passwordResult = 1;
     
 	while(1)
 	{
+        //Clear buffers
+        memset(buffer, 0, PODL_MAX_SIZE);
+        memset(resbuffer, 0, PODL_MAX_SIZE);
+        //memset(checksum, 0, PODL_MAX_SIZE);
+
         //Received Packet
         PODLPacket packet = RecvPacket(buffer);
         int packetSize = packet.msg.length + PODL_CS_MIN_SIZE; // 25 is size of packet without data
@@ -117,7 +123,7 @@ int PODLServer::Run()
             std::cout << "PODLServer: Incorrect Password" <<std::endl;
         }
         // Check checksum
-        MD5((unsigned char*)&buffer, msgSize, (unsigned char*)&checksum);
+        MD5(reinterpret_cast<unsigned char *>(buffer), msgSize, checksum);
         char mdString1[33];
         char mdString2[33];
         for(int i = 0; i < 16; i++)
@@ -136,10 +142,21 @@ int PODLServer::Run()
 
         resPacket.msg.id = packet.msg.id;
         resPacket.msg.length = 1;
-		SendPacket(packet);
+        int datalength = resPacket.msg.length + PODL_MIN_SIZE;
+
+        MD5(reinterpret_cast<unsigned char *>(resbuffer), datalength , (unsigned char*)&resPacket.checksum);
+
+        memcpy(resbuffer, &resPacket, datalength); 
+        memcpy(resbuffer, &resPacket.checksum, 16);
+		SendPacket(resbuffer, datalength + 16);
 		std::cout << packet;
 		
 	}
+
+    delete[] buffer;
+    delete[] resbuffer;
+    delete[] checksum;
+
 	return 1;
 }
 

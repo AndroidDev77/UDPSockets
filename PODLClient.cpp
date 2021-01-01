@@ -14,7 +14,7 @@ PODLClient::PODLClient(string ipaddr, int port)
 		exit(1);
 	}
 
-	addr = {0};
+	//addr = {0};
 	addr.sin_family = AF_INET;
 	addr.sin_port = htons(port);
 	
@@ -38,28 +38,26 @@ PODLClient::~PODLClient()
  * 
  * @return {int}  : 
  */
-int PODLClient::RecvPacket()
+int PODLClient::RecvPacket(char* resbuffer)
 {
 	int n = 0;
 	socklen_t slen = sizeof(addr);
-	char* buf = new char[PODL_MAX_SIZE];
-	while(1)
-	{
-		//send the message
-		//receive a reply and print it
-		//clear the buffer by filling null, it might have previously received data
-		//try to receive some data, this is a blocking call
-		n = recvfrom(sock, buf, PODL_MAX_SIZE, 0, (struct sockaddr *) &addr, &slen);
-		if(n == -1)
-		{
-			printf("Error receiving data\n");
-		}
 
-        PODLPacket packet(buf);
-		std::cout << packet;
-		printf("\n");
+	//send the message
+	//receive a reply and print it
+	//clear the buffer by filling null, it might have previously received data
+	//try to receive some data, this is a blocking call
+	n = recvfrom(sock, resbuffer, PODL_MAX_SIZE, 0, (struct sockaddr *) &addr, &slen);
+	if(n == -1)
+	{
+		printf("Error receiving data\n");
+		return 0;
 	}
-	close(sock);
+
+	PODLPacket packet;
+	packet = PODLPACKET(resbuffer);
+	std::cout << "PODLClient: Response Received: " << packet << std::endl;
+
 	return 0;
 }
 
@@ -88,7 +86,8 @@ int PODLClient::SendPacket(const char* msg, int size)
 int PODLClient::Run()
 {
     //byte buffer
-    char buffer[PODL_MAX_SIZE];
+    char *buffer = new char[PODL_MAX_SIZE];
+	char *resbuffer = new char[PODL_MAX_SIZE];
 
 	PODLPacket goodPacket;
     goodPacket.msg.id = 28;
@@ -108,7 +107,8 @@ int PODLClient::Run()
 
 
 	SendPacket(buffer, goodPacket.msg.length + PODL_CS_MIN_SIZE);
-	RecvPacket();
+	memset(resbuffer, 0, PODL_MAX_SIZE);
+	RecvPacket(resbuffer);
 
     //wrong password case
     stringData = "pas3swo";
@@ -122,7 +122,8 @@ int PODLClient::Run()
     memcpy(buffer + packetSize, (char*)checksum, MD5_DIGEST_LENGTH);
 
 	SendPacket(buffer, goodPacket.msg.length + PODL_CS_MIN_SIZE);
-	RecvPacket();
+	memset(resbuffer, 0, PODL_MAX_SIZE);
+	RecvPacket(resbuffer);
 
     //wrong checksum case
     stringData = "password";
@@ -136,7 +137,11 @@ int PODLClient::Run()
     memcpy(buffer + packetSize, (char*)checksum, MD5_DIGEST_LENGTH);
     
 	SendPacket(buffer, goodPacket.msg.length + PODL_CS_MIN_SIZE);
-	RecvPacket();
+	memset(resbuffer, 0, PODL_MAX_SIZE);
+	RecvPacket(resbuffer);
+
+	delete[] buffer;
+	delete[] resbuffer;
 
 	return 0;
 }

@@ -10,7 +10,22 @@ FetchContent_Declare(
 set(TESTS OFF CACHE BOOL "Switch off CppUTest Test build")
 FetchContent_MakeAvailable(CppUTest)
 
+set(OPENSSL_USE_STATIC_LIBS TRUE)
+find_package(OpenSSL REQUIRED)
+
+if (OPENSSL_FOUND)
+    
+  # Add the include directories for compiling
+  include_directories(${OPENSSL_INCLUDE_DIR})
+  # Add the static lib for linking
+  #link_libraries(OPENSSL_CRYOPENSSL_LIBRARIES)
+  message(STATUS "Found OpenSSL ${OPENSSL_VERSION}")
+else()
+  message(STATUS "OpenSSL Not Found")
+endif()
+
+
 include_directories(${PROJECT_SOURCE_DIR})
 
 add_executable (run_tests ../PODLPacket.cpp PODLPacketTest.cpp)
-target_link_libraries(run_tests PRIVATE CppUTest CppUTestExt)
+target_link_libraries(run_tests PRIVATE CppUTest CppUTestExt OpenSSL::Crypto pthread)

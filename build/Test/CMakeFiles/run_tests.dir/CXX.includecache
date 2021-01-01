@@ -39,6 +39,8 @@ CppUTest/MemoryLeakDetectorNewMacros.h
 /home/chris/binaryParser/Test/CppUTest/MemoryLeakDetectorNewMacros.h
 algorithm
 -
+openssl/md5.h
+/home/chris/binaryParser/Test/openssl/md5.h
 ../PODLPacket.h
 /home/chris/binaryParser/PODLPacket.h
 

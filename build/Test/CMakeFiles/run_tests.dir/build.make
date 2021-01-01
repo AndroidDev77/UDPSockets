@@ -96,6 +96,7 @@ Test/run_tests: Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o
 Test/run_tests: Test/CMakeFiles/run_tests.dir/build.make
 Test/run_tests: _deps/cpputest-build/src/CppUTest/libCppUTest.a
 Test/run_tests: _deps/cpputest-build/src/CppUTestExt/libCppUTestExt.a
+Test/run_tests: /usr/lib/x86_64-linux-gnu/libcrypto.so
 Test/run_tests: Test/CMakeFiles/run_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/binaryParser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable run_tests"
 	cd /home/chris/binaryParser/build/Test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/run_tests.dir/link.txt --verbose=$(VERBOSE)

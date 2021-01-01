@@ -19,7 +19,7 @@ private:
 public:
 	PODLServer(std::string ipaddr, int port, std::string password);
 	~PODLServer();
-	int SendPacket(PODLPacket packet);
+	int SendPacket(char* buffer, int size);
 	PODLPacket RecvPacket(char* msg);
 	int Run();
 
