@@ -30,10 +30,10 @@ TEST_GROUP(PODLPacket)
 TEST(PODLPacket, SerializeTest)
 {
 
-    char buffer[80];
-    (*packet).Serialize(buffer);
+    std::vector<char> buffer(80);
+    (*packet).Serialize(buffer.data());
     
-    PODLPacket testPacket(buffer);
+    PODLPacket testPacket(buffer.data());
     CHECK_EQUAL_TEXT(28, testPacket.msg.id, "ID Invalid");
     CHECK_EQUAL_TEXT(9, testPacket.msg.length, "Msg Length Invalid");
     STRCMP_EQUAL_TEXT(msgDataString.c_str(), testPacket.msg.data, "Password Invalid");

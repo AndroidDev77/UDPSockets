@@ -9,7 +9,7 @@
 //Function for PODL Server
 void *serverThread(void* arg)
 {   
-    PODLServer* serv = reinterpret_cast<PODLServer*>(arg);
+    PODLServer* serv = static_cast<PODLServer*>(arg);
 	(*serv).Run();
 
     return 0;
@@ -28,7 +28,9 @@ int main(int, char**) {
     pthread_create(&thread, NULL, serverThread, (void*) serv);
     
 
-	(*cli).Run();
+	(*cli).RunTests();
+
+    pthread_join(thread, NULL); 
 
     return 0;
 }

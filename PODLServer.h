@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <memory>
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -15,12 +16,13 @@ class PODLServer
 private:
 	sockaddr_in srvaddr, cliaddr;
 	int sock = 0;
-    std::string password;
+	socklen_t addrlen;
+	std::string password;
 public:
 	PODLServer(std::string ipaddr, int port, std::string password);
 	~PODLServer();
 	int SendPacket(char* buffer, int size);
-	PODLPacket RecvPacket(char* msg);
+	int RecvPacket(char* msg, PODLPacket* packet);
 	int Run();
 
 };

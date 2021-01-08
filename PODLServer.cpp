@@ -17,14 +17,22 @@ PODLServer::PODLServer(std::string ipaddr, int port, std::string ipassword)
 		printf("Error creating socket\n");
 		exit(1);
 	}
+
+    //Add timeout to sock options
+    struct timeval tv;
+    tv.tv_sec = 60;
+    tv.tv_usec = 0;
+    setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (const char*)&tv, sizeof(tv));
+
 	cliaddr = {0};
 	srvaddr = {0};
 	srvaddr.sin_family = AF_INET;
 	srvaddr.sin_port = htons(port);
 	srvaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 
+    addrlen = sizeof(cliaddr); 
 	//bind socket to port
-	if( bind(sock, (struct sockaddr*)&srvaddr, sizeof(srvaddr)) == -1)
+	if( bind(sock, reinterpret_cast<sockaddr *>(&srvaddr), sizeof(srvaddr)) == -1)
 	{
 		printf("bind() error");
 		exit(1);
@@ -51,7 +59,7 @@ int PODLServer::SendPacket(char* buffer, int size)
 {
 	socklen_t slen = sizeof(cliaddr);
    
-	if (sendto(sock,buffer, size ,0 , (struct sockaddr*) &cliaddr, slen) == -1)
+	if (sendto(sock,buffer, size ,0 , reinterpret_cast<sockaddr *>(&cliaddr), slen) == -1)
         {
                fprintf(stderr, "sendto() failed\n");
         }
@@ -63,21 +71,53 @@ int PODLServer::SendPacket(char* buffer, int size)
  * PODLServer::RecvPacket
  * 
  * @param  {char*} buffer : 
- * @return {PODLPacket}   : 
+ * @return {PODLPacket*} buffer : 
+ * @return {int}   : packet status
  */
-PODLPacket PODLServer::RecvPacket(char* buffer)
-{
-    	socklen_t len = sizeof(cliaddr); 
+int PODLServer::RecvPacket(char* buffer, PODLPacket* packet)
+{   
+    int isInvalidPacket = 0;
+    int peekBytes = 0;
+    uint8_t reportedPasswordLen = 0;
+    
+    //Peek read data to get full length to properly frame message
+    peekBytes = recvfrom(sock, buffer, PODL_MIN_SIZE,  MSG_PEEK, reinterpret_cast<sockaddr *>(&cliaddr), &addrlen);
+    if(peekBytes > PODL_MIN_SIZE -1)
+    {
+        //ninth byte is password length
+        reportedPasswordLen = static_cast<uint8_t>(buffer[8]);   
+    }
+    // -1 indicated error
+    else if(peekBytes == -1)
+    {
+        std::cout << "PODLServer: Socket Error Receiving Data" << std::endl;
+        isInvalidPacket = 1;
+        return isInvalidPacket;
+    }
+    // password len invalid
+    if(reportedPasswordLen > PODL_MAX_PASSWORD_LEN )
+    {
+        isInvalidPacket = 1;
+        return isInvalidPacket;
+    }
 
-    	int n = recvfrom(sock, (char *)buffer, PODL_MAX_SIZE,  0, ( struct sockaddr *) &cliaddr, &len);
-    	PODLPacket packet;
-        if(n > 0)
-        {
-            packet = PODLPacket(buffer);
-    	    std::cout << "PODLServer: Received: " << packet << std::endl;
-        }
+    int numBytes = 0;
+    //read passwordlen + PODL_CS_MIN_SIZE bytes
+    numBytes = recvfrom(sock, buffer, reportedPasswordLen + PODL_CS_MIN_SIZE,  MSG_WAITALL, reinterpret_cast<sockaddr *>(&cliaddr), &addrlen);
+    if(numBytes > 0)
+    {
+        isInvalidPacket = (*packet).Deserialize(buffer);
 
-	    return packet;
+        if(isInvalidPacket == 0)
+            std::cout << "PODLServer: Received: " << (*packet) << std::endl;
+    }
+    else
+    {
+        isInvalidPacket = 1;
+    }
+    
+
+    return isInvalidPacket;
 }
 
 /**
@@ -87,84 +127,102 @@ PODLPacket PODLServer::RecvPacket(char* buffer)
  */
 int PODLServer::Run()
 {
-	char *buffer = new char[PODL_MAX_SIZE];
-    char *resbuffer = new char[PODL_MAX_SIZE];
-	unsigned char *checksum = new unsigned char [MD5_DIGEST_LENGTH];
+    //Receiver buffer
+    std::vector<char> buffer(PODL_MAX_SIZE);
+    //Response buffer
+    std::vector<char> resbuffer(PODL_MAX_SIZE);
+
+    char mdString1[33];
+    char mdString2[33];
+
+	unsigned char checksum[MD5_DIGEST_LENGTH];
     int passwordResult = 1;
-    
-	while(1)
+    int isInvalidPacket = 0;
+    bool running = true;
+
+	while(running)
 	{
         //Clear buffers
-        memset(buffer, 0, PODL_MAX_SIZE);
-        memset(resbuffer, 0, PODL_MAX_SIZE);
-        //memset(checksum, 0, PODL_MAX_SIZE);
+        buffer.assign(PODL_MAX_SIZE,0);
+        resbuffer.assign(PODL_MAX_SIZE,0);
+
 
         //Received Packet
-        PODLPacket packet = RecvPacket(buffer);
-        int packetSize = packet.msg.length + PODL_CS_MIN_SIZE; // 25 is size of packet without data
-        int msgSize = packet.msg.length + PODL_MIN_SIZE;
-        // Response Packet
-        PODLPacket resPacket = PODLPacket();
-
-        // Checkpassword
-        passwordResult = password.compare(std::string(reinterpret_cast<const char*>(&packet.msg.data [0]),
-                            packet.msg.length));
-
-        // correct password
-        if(passwordResult == 0)
+        PODLPacket packet;
+        isInvalidPacket = RecvPacket(buffer.data(), &packet);
+        
+        if(!isInvalidPacket)
         {
-           resPacket.msg.data[0] = 0; 
-           std::cout << "PODLServer: Correct Password" <<std::endl;
-        }
-        // wrong password
-        else
-        {
-            resPacket.msg.data[0] = 1;
-            std::cout << "PODLServer: Incorrect Password" <<std::endl;
-        }
-        // Check checksum
-        MD5(reinterpret_cast<unsigned char *>(buffer), msgSize, checksum);
-        char mdString1[33];
-        char mdString2[33];
-        for(int i = 0; i < 16; i++)
+            int msgSize = packet.msg.length + PODL_MIN_SIZE;
+            // Response Packet
+            PODLPacket resPacket = PODLPacket();
+
+            // Checkpassword
+            std::string sentPassword = std::string(reinterpret_cast<const char*>(&packet.msg.data[0], packet.msg.length));
+
+            passwordResult = sentPassword.compare(password);
+
+            // correct password
+            if(passwordResult == 0)
             {
-                sprintf(&mdString1[i*2], "%02x", (unsigned int)checksum[i]);
-                sprintf(&mdString2[i*2], "%02x", (unsigned int)packet.checksum[i]);
+            resPacket.msg.data[0] = 0x00; 
+            std::cout << "PODLServer: Correct Password" <<std::endl;
             }
-    
-        int checksumRes = strcmp(mdString1, mdString2);
+            // wrong password
+            else if(passwordResult < 0)
+            {
+                resPacket.msg.data[0] = 0x01;
+                resPacket.msg.data[1] = 0x00;
+                std::cout << "PODLServer: Sent Password < Password" <<std::endl;
+            }
+            else if(passwordResult > 0)
+            {
+                resPacket.msg.data[0] = 0x01;
+                resPacket.msg.data[1] = 0xff;
+                std::cout << "PODLServer: Sent Password > Password" <<std::endl;
 
-        if(checksumRes != 0)
-        {
-            resPacket.msg.data[0] = 2;
-            std::cout << "PODLServer: Incorrect Checksum" <<std::endl;
+            }
+            // Check checksum
+            MD5(reinterpret_cast<unsigned char *>(buffer.data()), msgSize, checksum);
+
+            for(int i = 0; i < 16; i++)
+                {
+                    sprintf(&mdString1[i*2], "%02x", static_cast<unsigned int>(checksum[i]));
+                    sprintf(&mdString2[i*2], "%02x", static_cast<unsigned int>(packet.checksum[i]));
+                }
+        
+            int checksumRes = strcmp(mdString1, mdString2);
+
+            if(checksumRes != 0)
+            {
+                resPacket.msg.data[0] = 0x02;
+                std::cout << "PODLServer: Incorrect Checksum" <<std::endl;
+            }
+
+            //copy id from received packet
+            resPacket.msg.id = packet.msg.id;
+            resPacket.msg.length = 1;
+            int datalength = resPacket.msg.length + PODL_MIN_SIZE;
+
+            MD5(reinterpret_cast<unsigned char*>(&resPacket), datalength , reinterpret_cast<unsigned char*>(&resPacket.checksum));
+            
+            resPacket.Serialize(resbuffer.data());
+            SendPacket(resbuffer.data(), resbuffer.size());
+            std::cout << packet;
         }
-
-        resPacket.msg.id = packet.msg.id;
-        resPacket.msg.length = 1;
-        int datalength = resPacket.msg.length + PODL_MIN_SIZE;
-
-        MD5(reinterpret_cast<unsigned char *>(resbuffer), datalength , (unsigned char*)&resPacket.checksum);
-
-        memcpy(resbuffer, &resPacket, datalength); 
-        memcpy(resbuffer, &resPacket.checksum, 16);
-		SendPacket(resbuffer, datalength + 16);
-		std::cout << packet;
 		
 	}
 
-    delete[] buffer;
-    delete[] resbuffer;
-    delete[] checksum;
-
-	return 1;
+	return 0;
 }
 
-/*int main( int argc, const char* argv[] )
+/*
+int main( int argc, const char* argv[] )
 {
     std::string password = "password";
 	PODLServer serv("127.0.0.1", 10000, password);
 	serv.Run();
 
 	return 1;
-}*/
+}
+*/

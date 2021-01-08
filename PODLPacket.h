@@ -8,12 +8,17 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <exception>
 
 #include "openssl/md5.h"
 
+//header, id, length size
 #define PODL_MIN_SIZE 9
+//header, id, length, and checksum
 #define PODL_CS_MIN_SIZE PODL_MIN_SIZE + 16
-#define PODL_MAX_SIZE 280
+#define PODL_MAX_PASSWORD_LEN 255
+#define PODL_MAX_SIZE PODL_MAX_PASSWORD_LEN + PODL_CS_MIN_SIZE
+
 
 #ifndef PODLPACKET
 
@@ -30,17 +35,19 @@ public:
     };
 	Data msg;
     #pragma pack(pop)
-
     unsigned char checksum[MD5_DIGEST_LENGTH];
 	PODLPacket();
     ~PODLPacket();
 	PODLPacket(char* indata);
 
-    void Deserialize(char* inbuffer);
+    int Deserialize(char* inbuffer);
     int Serialize(char* outbuffer);
+    
 };
 
 extern std::ostream& operator<<(std::ostream &strm, const PODLPacket &packet);
+
+
 
 #define PODLPACKET
 #endif
