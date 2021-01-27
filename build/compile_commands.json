@@ -26,6 +26,16 @@
 },
 {
   "directory": "/home/chris/binaryParser/build/Test",
+  "command": "/usr/bin/c++   -I/home/chris/binaryParser/Test -I/home/chris/binaryParser/build/_deps/cpputest-src/src/CppUTest/../../include -I/home/chris/binaryParser/build/_deps/cpputest-src/src/CppUTestExt/../../include  -g   -o CMakeFiles/run_tests.dir/__/PODLServer.cpp.o -c /home/chris/binaryParser/PODLServer.cpp",
+  "file": "/home/chris/binaryParser/PODLServer.cpp"
+},
+{
+  "directory": "/home/chris/binaryParser/build/Test",
+  "command": "/usr/bin/c++   -I/home/chris/binaryParser/Test -I/home/chris/binaryParser/build/_deps/cpputest-src/src/CppUTest/../../include -I/home/chris/binaryParser/build/_deps/cpputest-src/src/CppUTestExt/../../include  -g   -o CMakeFiles/run_tests.dir/__/PODLClient.cpp.o -c /home/chris/binaryParser/PODLClient.cpp",
+  "file": "/home/chris/binaryParser/PODLClient.cpp"
+},
+{
+  "directory": "/home/chris/binaryParser/build/Test",
   "command": "/usr/bin/c++   -I/home/chris/binaryParser/Test -I/home/chris/binaryParser/build/_deps/cpputest-src/src/CppUTest/../../include -I/home/chris/binaryParser/build/_deps/cpputest-src/src/CppUTestExt/../../include  -g   -o CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o -c /home/chris/binaryParser/Test/PODLPacketTest.cpp",
   "file": "/home/chris/binaryParser/Test/PODLPacketTest.cpp"
 },

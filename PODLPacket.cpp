@@ -18,7 +18,8 @@ PODLPacket::PODLPacket()
     memcpy(msg.header,std::string("PODL").c_str(),4);
     msg.id = 0;
     msg.length = 0;
-    msg.data[255] = {0};
+    //msg.data[255] = {0};
+    memset(msg.data,0,255);
     checksum[16] = {0};
 }
 
@@ -30,7 +31,6 @@ PODLPacket::~PODLPacket()
 {
     
 }
-
 
 /**
  * PODLPacket::PODLPacket 
@@ -54,7 +54,7 @@ int PODLPacket::Deserialize(char* inbuffer)
     char* inbufferIt = inbuffer;
     try{
         //set header, id, length
-        std::copy(inbuffer, inbuffer + PODL_MIN_SIZE, reinterpret_cast<char*>(&msg));
+        std::copy(inbuffer, inbuffer + PODL_MIN_SIZE, reinterpret_cast<unsigned char*>(&msg));
         inbufferIt += PODL_MIN_SIZE;
         //check password length 
         if(msg.length > PODL_MAX_PASSWORD_LEN)
@@ -91,7 +91,7 @@ int PODLPacket::Serialize(char* outbuffer)
 
     int size = PODL_MIN_SIZE + msg.length;
     msg.id = htobe32(msg.id); //hack to get network endinaness fix later
-    std::copy(reinterpret_cast<char*>(&msg), reinterpret_cast<char*>(&msg) + size, outbuffer);
+    std::copy(reinterpret_cast<unsigned char*>(&msg), reinterpret_cast<unsigned char*>(&msg) + size, outbuffer);
     std::copy(checksum, checksum + MD5_DIGEST_LENGTH, outbuffer + size); 
     msg.id = be32toh(msg.id);
     }

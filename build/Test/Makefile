@@ -220,6 +220,33 @@ PODLPacketTest.cpp.s:
 	cd /home/chris/binaryParser/build && $(MAKE) -f Test/CMakeFiles/run_tests.dir/build.make Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.s
 .PHONY : PODLPacketTest.cpp.s
 
+__/PODLClient.o: __/PODLClient.cpp.o
+
+.PHONY : __/PODLClient.o
+
+# target to build an object file
+__/PODLClient.cpp.o:
+	cd /home/chris/binaryParser/build && $(MAKE) -f Test/CMakeFiles/run_tests.dir/build.make Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.o
+.PHONY : __/PODLClient.cpp.o
+
+__/PODLClient.i: __/PODLClient.cpp.i
+
+.PHONY : __/PODLClient.i
+
+# target to preprocess a source file
+__/PODLClient.cpp.i:
+	cd /home/chris/binaryParser/build && $(MAKE) -f Test/CMakeFiles/run_tests.dir/build.make Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.i
+.PHONY : __/PODLClient.cpp.i
+
+__/PODLClient.s: __/PODLClient.cpp.s
+
+.PHONY : __/PODLClient.s
+
+# target to generate assembly for a file
+__/PODLClient.cpp.s:
+	cd /home/chris/binaryParser/build && $(MAKE) -f Test/CMakeFiles/run_tests.dir/build.make Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.s
+.PHONY : __/PODLClient.cpp.s
+
 __/PODLPacket.o: __/PODLPacket.cpp.o
 
 .PHONY : __/PODLPacket.o
@@ -247,6 +274,33 @@ __/PODLPacket.cpp.s:
 	cd /home/chris/binaryParser/build && $(MAKE) -f Test/CMakeFiles/run_tests.dir/build.make Test/CMakeFiles/run_tests.dir/__/PODLPacket.cpp.s
 .PHONY : __/PODLPacket.cpp.s
 
+__/PODLServer.o: __/PODLServer.cpp.o
+
+.PHONY : __/PODLServer.o
+
+# target to build an object file
+__/PODLServer.cpp.o:
+	cd /home/chris/binaryParser/build && $(MAKE) -f Test/CMakeFiles/run_tests.dir/build.make Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.o
+.PHONY : __/PODLServer.cpp.o
+
+__/PODLServer.i: __/PODLServer.cpp.i
+
+.PHONY : __/PODLServer.i
+
+# target to preprocess a source file
+__/PODLServer.cpp.i:
+	cd /home/chris/binaryParser/build && $(MAKE) -f Test/CMakeFiles/run_tests.dir/build.make Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.i
+.PHONY : __/PODLServer.cpp.i
+
+__/PODLServer.s: __/PODLServer.cpp.s
+
+.PHONY : __/PODLServer.s
+
+# target to generate assembly for a file
+__/PODLServer.cpp.s:
+	cd /home/chris/binaryParser/build && $(MAKE) -f Test/CMakeFiles/run_tests.dir/build.make Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.s
+.PHONY : __/PODLServer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -265,9 +319,15 @@ help:
 	@echo "... PODLPacketTest.o"
 	@echo "... PODLPacketTest.i"
 	@echo "... PODLPacketTest.s"
+	@echo "... __/PODLClient.o"
+	@echo "... __/PODLClient.i"
+	@echo "... __/PODLClient.s"
 	@echo "... __/PODLPacket.o"
 	@echo "... __/PODLPacket.i"
 	@echo "... __/PODLPacket.s"
+	@echo "... __/PODLServer.o"
+	@echo "... __/PODLServer.i"
+	@echo "... __/PODLServer.s"
 .PHONY : help
 
 

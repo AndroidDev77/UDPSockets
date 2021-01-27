@@ -16,6 +16,8 @@ void *serverThread(void* arg)
 }
 
 int main(int, char**) {
+
+    //testFunction();
     std::string password = "password";
     int port = 10000;
 
@@ -28,7 +30,7 @@ int main(int, char**) {
     pthread_create(&thread, NULL, serverThread, (void*) serv);
     
 
-	(*cli).RunTests();
+	(*cli).RunBinarySearchCrack();
 
     pthread_join(thread, NULL); 
 

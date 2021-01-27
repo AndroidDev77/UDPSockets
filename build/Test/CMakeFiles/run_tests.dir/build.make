@@ -70,9 +70,35 @@ Test/CMakeFiles/run_tests.dir/__/PODLPacket.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/__/PODLPacket.cpp.s"
 	cd /home/chris/binaryParser/build/Test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/binaryParser/PODLPacket.cpp -o CMakeFiles/run_tests.dir/__/PODLPacket.cpp.s
 
+Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.o: Test/CMakeFiles/run_tests.dir/flags.make
+Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.o: ../PODLServer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/binaryParser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.o"
+	cd /home/chris/binaryParser/build/Test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/run_tests.dir/__/PODLServer.cpp.o -c /home/chris/binaryParser/PODLServer.cpp
+
+Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run_tests.dir/__/PODLServer.cpp.i"
+	cd /home/chris/binaryParser/build/Test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/binaryParser/PODLServer.cpp > CMakeFiles/run_tests.dir/__/PODLServer.cpp.i
+
+Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/__/PODLServer.cpp.s"
+	cd /home/chris/binaryParser/build/Test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/binaryParser/PODLServer.cpp -o CMakeFiles/run_tests.dir/__/PODLServer.cpp.s
+
+Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.o: Test/CMakeFiles/run_tests.dir/flags.make
+Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.o: ../PODLClient.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/binaryParser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.o"
+	cd /home/chris/binaryParser/build/Test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/run_tests.dir/__/PODLClient.cpp.o -c /home/chris/binaryParser/PODLClient.cpp
+
+Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/run_tests.dir/__/PODLClient.cpp.i"
+	cd /home/chris/binaryParser/build/Test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/chris/binaryParser/PODLClient.cpp > CMakeFiles/run_tests.dir/__/PODLClient.cpp.i
+
+Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/run_tests.dir/__/PODLClient.cpp.s"
+	cd /home/chris/binaryParser/build/Test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/chris/binaryParser/PODLClient.cpp -o CMakeFiles/run_tests.dir/__/PODLClient.cpp.s
+
 Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o: Test/CMakeFiles/run_tests.dir/flags.make
 Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o: ../Test/PODLPacketTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/binaryParser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/chris/binaryParser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o"
 	cd /home/chris/binaryParser/build/Test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o -c /home/chris/binaryParser/Test/PODLPacketTest.cpp
 
 Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.i: cmake_force
@@ -86,19 +112,23 @@ Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.s: cmake_force
 # Object files for target run_tests
 run_tests_OBJECTS = \
 "CMakeFiles/run_tests.dir/__/PODLPacket.cpp.o" \
+"CMakeFiles/run_tests.dir/__/PODLServer.cpp.o" \
+"CMakeFiles/run_tests.dir/__/PODLClient.cpp.o" \
 "CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o"
 
 # External object files for target run_tests
 run_tests_EXTERNAL_OBJECTS =
 
 Test/run_tests: Test/CMakeFiles/run_tests.dir/__/PODLPacket.cpp.o
+Test/run_tests: Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.o
+Test/run_tests: Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.o
 Test/run_tests: Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o
 Test/run_tests: Test/CMakeFiles/run_tests.dir/build.make
 Test/run_tests: _deps/cpputest-build/src/CppUTest/libCppUTest.a
 Test/run_tests: _deps/cpputest-build/src/CppUTestExt/libCppUTestExt.a
 Test/run_tests: /usr/lib/x86_64-linux-gnu/libcrypto.so
 Test/run_tests: Test/CMakeFiles/run_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/binaryParser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable run_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/chris/binaryParser/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable run_tests"
 	cd /home/chris/binaryParser/build/Test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/run_tests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

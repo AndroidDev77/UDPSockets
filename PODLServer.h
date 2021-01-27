@@ -22,7 +22,7 @@ public:
 	PODLServer(std::string ipaddr, int port, std::string password);
 	~PODLServer();
 	int SendPacket(char* buffer, int size);
-	int RecvPacket(char* msg, PODLPacket* packet);
+	int RecvPacket(char* msg, PODLPacket& packet);
 	int Run();
 
 };

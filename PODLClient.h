@@ -22,9 +22,14 @@ private:
 public:
 	PODLClient(string ipaddr, int port);
 	~PODLClient();
+
 	int SendPacket(const char* data, int size);
-	int SendPacket(PODLPacket packet);
-	int RecvPacket(char* resbuffer);
+	int RecvPacket(char* resbuffer,  PODLPacket& packet);
+
+	int SendPacket(PODLPacket& sendPacket, PODLPacket& resPacket);
+
+	int CheckPassword(std::string password);
 	int RunTests();
+	int RunBinarySearchCrack();
 
 };

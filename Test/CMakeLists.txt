@@ -27,5 +27,5 @@ endif()
 
 include_directories(${PROJECT_SOURCE_DIR})
 
-add_executable (run_tests ../PODLPacket.cpp PODLPacketTest.cpp)
+add_executable (run_tests ../PODLPacket.cpp ../PODLServer.cpp  ../PODLClient.cpp  PODLPacketTest.cpp )
 target_link_libraries(run_tests PRIVATE CppUTest CppUTestExt OpenSSL::Crypto pthread)

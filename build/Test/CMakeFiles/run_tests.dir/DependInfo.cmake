@@ -5,7 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/chris/binaryParser/Test/PODLPacketTest.cpp" "/home/chris/binaryParser/build/Test/CMakeFiles/run_tests.dir/PODLPacketTest.cpp.o"
+  "/home/chris/binaryParser/PODLClient.cpp" "/home/chris/binaryParser/build/Test/CMakeFiles/run_tests.dir/__/PODLClient.cpp.o"
   "/home/chris/binaryParser/PODLPacket.cpp" "/home/chris/binaryParser/build/Test/CMakeFiles/run_tests.dir/__/PODLPacket.cpp.o"
+  "/home/chris/binaryParser/PODLServer.cpp" "/home/chris/binaryParser/build/Test/CMakeFiles/run_tests.dir/__/PODLServer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
